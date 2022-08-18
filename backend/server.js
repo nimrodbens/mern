@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: false}))
 app.use('/api/cats', require('./routes/catRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
-app.get('*', (req, res)=>{res.send('Cats!!!')})
+app.get('*', (req, res)=>{res.send('Cats!!! AWS!!!')})
 
 app.use(errorHandler)
 
