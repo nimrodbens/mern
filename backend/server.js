@@ -1,4 +1,5 @@
 const express = require('express')
+const limitter = require('express-rate-limit')
 const colors = require('colors')
 const dotenv = require('dotenv').config()
 const { errorHandler } = require('./middleware/errorMiddleware')
@@ -8,6 +9,11 @@ const port = process.env.PORT || 7400
 connectDB()
 
 const app = express()
+
+app.use(limitter({
+    windowMs: 5000,
+    limit: 5
+}))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
